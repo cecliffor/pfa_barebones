@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Pathways Foot & Ankle | Holistic & Functional Medicine, Oregon City</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Rethink+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #FFFFFF;
+      color: #083104;
+      font-family: 'Rethink Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      line-height: 1.4;
+      scroll-behavior: smooth;
+    }
+
+    /* Typography scale using DM Sans for headings/large text, Rethink Sans for smaller/body */
+    h1, h2, h3, .heading-large, .nav-links a, .hero-title, .section-title, .cta-button, .button-primary, .button-outline, .card-title, .doctor-name {
+      font-family: 'DM Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-weight: 700;
+    }
+
+    .logo-text, .subheadline, .contact-info, .footer-note, .condition-list li, .service-item p, .badge, .meta-text {
+      font-family: 'Rethink Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-weight: 400;
+    }
+
+    .font-medium {
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header & navigation */
+    .site-header {
+      background-color: #FFFFFF;
+      border-bottom: 2px solid #43895020;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(2px);
+    }
+
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .logo-area h1 {
+      font-size: 1.8rem;
+      letter-spacing: -0.3px;
+      color: #083104;
+      line-height: 1.2;
+    }
+    .logo-area p {
+      font-size: 0.9rem;
+      color: #438950;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #083104;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #438950;
+    }
+    .btn-request-nav {
+      background-color: #083104;
+      padding: 10px 20px;
+      border-radius: 40px;
+      color: white !important;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+    .btn-request-nav:hover {
+      background-color: #438950;
+      color: white !important;
+    }
+
+    /* hero section */
+    .hero {
+      padding: 64px 0 48px;
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hero-content {
+      flex: 1.2;
+    }
+    .hero-badge {
+      background: #43895010;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #083104;
+      margin-bottom: 20px;
+      border-left: 3px solid #438950;
+    }
+    .hero-title {
+      font-size: 3.4rem;
+      line-height: 1.2;
+      color: #083104;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+    .hero-sub {
+      font-size: 1.2rem;
+      margin-bottom: 28px;
+      color: #2c4828;
+    }
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background-color: #438950;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      display: inline-block;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn-primary:hover {
+      background-color: #083104;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #083104;
+      color: #083104;
+      padding: 12px 28px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-outline:hover {
+      background: #083104;
+      color: white;
+      border-color: #083104;
+    }
+
+    /* features highlight strip */
+    .features-strip {
+      background-color: #F5F9F2;
+      padding: 40px 0;
+      margin: 20px 0;
+      border-radius: 48px;
+    }
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .feature-card {
+      flex: 1;
+      min-width: 180px;
+      text-align: center;
+    }
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 0.9rem;
+    }
+
+    /* section general */
+    section {
+      padding: 64px 0;
+      border-bottom: 1px solid #e9f0e6;
+    }
+    .section-title {
+      font-size: 2.3rem;
+      margin-bottom: 16px;
+      color: #083104;
+    }
+    .section-sub {
+      font-size: 1.1rem;
+      max-width: 760px;
+      margin-bottom: 40px;
+      color: #2b4b26;
+    }
+
+    /* two column layout */
+    .two-col {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+    }
+    .col {
+      flex: 1;
+    }
+
+    /* condition / service lists */
+    .conditions-grid, .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px 24px;
+    }
+    .conditions-grid li, .service-list-item {
+      list-style: none;
+      position: relative;
+      padding-left: 24px;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+    .conditions-grid li::before, .service-list-item::before {
+      content: "✓";
+      color: #438950;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .service-card {
+      background: #F9FCF8;
+      border-radius: 28px;
+      padding: 24px;
+      transition: 0.2s;
+      border: 1px solid #e0ecd9;
+    }
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: #083104;
+    }
+    .service-card p {
+      font-size: 0.9rem;
+      color: #2C3E2B;
+    }
+
+    /* doctor bio */
+    .doctor-bio {
+      background: #F5F9F2;
+      border-radius: 40px;
+      padding: 48px;
+      margin: 24px 0;
+    }
+    .doctor-name {
+      font-size: 2rem;
+    }
+    .credentials {
+      font-size: 1rem;
+      color: #438950;
+      margin-bottom: 20px;
+    }
+
+    /* contact */
+    .contact-card {
+      background: #083104;
+      color: white;
+      border-radius: 36px;
+      padding: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .contact-details a {
+      color: #FFFFFF;
+      text-decoration: none;
+      border-bottom: 1px solid #438950;
+    }
+    .contact-details p {
+      margin: 16px 0;
+      font-size: 1.2rem;
+    }
+
+    /* map placeholder */
+    .map-placeholder {
+      background: #D9E3D4;
+      border-radius: 24px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: #083104;
+      background-image: radial-gradient(circle at 10% 20%, #c0d0b5 2%, transparent 2.5%);
+      background-size: 20px 20px;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #44633e;
+    }
+    @media (max-width: 780px) {
+      .hero-title { font-size: 2.4rem; }
+      .section-title { font-size: 1.8rem; }
+      .doctor-bio { padding: 28px; }
+      .nav-links { gap: 18px; }
+      .header-flex { flex-direction: column; align-items: flex-start; }
+    }
+    button, a { cursor: pointer; }
+    .text-lightgreen { color: #438950; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-flex">
+    <div class="logo-area">
+      <h1>Pathways Foot & Ankle</h1>
+      <p>Holistic, Functional Medicine · Board Certified Expertise</p>
+    </div>
+    <div class="nav-links">
+      <a href="#conditions">Conditions</a>
+      <a href="#services">Services</a>
+      <a href="#about">Dr. Clifford</a>
+      <a href="#contact">Contact</a>
+      <a href="#appointment" class="btn-request-nav">Request Appointment</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- hero -->
+  <div class="container hero">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">Direct Care · No Insurance Middlemen</div>
+        <h1 class="hero-title">Your next step on the path to better health</h1>
+        <p class="hero-sub">Holistic, functional medicine meets board-certified foot & ankle expertise — in the heart of Oregon City. Longer visits, transparent pricing, and root-cause healing.</p>
+        <div class="cta-group">
+          <a href="#appointment" class="btn-primary">Request an Appointment</a>
+          <a href="#contact" class="btn-outline">Call Dr. Clifford</a>
+        </div>
+        <div style="margin-top: 28px; display: flex; gap: 24px; flex-wrap: wrap;">
+          <span>✅ Same-day visits</span>
+          <span>🏠 House calls available</span>
+          <span>⚡ No referrals needed</span>
+        </div>
+      </div>
+      <div style="flex:0.8; min-width: 220px; background: #eef5ea; border-radius: 32px; padding: 32px; text-align: center;">
+        <div style="font-size: 2rem;">🦶🏽</div>
+        <p style="font-weight: bold;">Direct specialist access</p>
+        <p style="font-size:0.85rem;">Skip the wait, get answers today</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- value add: strip -->
+  <div class="container features-strip">
+    <div class="feature-grid">
+      <div class="feature-card"><h3>📍 Same-day visits</h3><p>No referral, no prior auth</p></div>
+      <div class="feature-card"><h3>🌿 Functional medicine</h3><p>Root cause resolution</p></div>
+      <div class="feature-card"><h3>🏠 House calls</h3><p>We come to you</p></div>
+      <div class="feature-card"><h3>💚 No surprise bills</h3><p>HSA/FSA eligible</p></div>
+    </div>
+  </div>
+
+  <!-- Conditions Treated -->
+  <section id="conditions">
+    <div class="container">
+      <h2 class="section-title">Conditions Treated</h2>
+      <p class="section-sub">Your feet are the foundation of everything you do. From sharp pain to complex deformities — conservative care first, surgery last resort.</p>
+      <div class="two-col">
+        <div class="col">
+          <h3 style="margin-bottom: 16px;">Acute & Chronic Pain</h3>
+          <ul class="conditions-grid">
+            <li>Achilles Tendinitis</li><li>Ankle Instability</li><li>Ankle Arthritis</li><li>Arthritis</li><li>Bunions</li><li>Fractures</li><li>Neuromas & Nerve Pain</li>
+            <li>Tarsal Tunnel Syndrome</li><li>Plantar Fasciitis</li><li>Heel Pain</li><li>Posterior Tibial Tendinitis</li><li>Stress Fractures</li><li>Tendonitis</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3 style="margin-bottom: 16px;">Deformities & Skin Conditions</h3>
+          <ul class="conditions-grid">
+            <li>Hammertoes & Crossover Toes</li><li>Flat Feet</li><li>Clubfoot Deformity</li><li>Corns/Calluses</li><li>Ingrown Toenails</li><li>Toenail Fungus</li><li>Skin Cancer of the Foot</li><li>Ulcers / Wounds</li><li>Warts</li>
+          </ul>
+          <h3 style="margin: 24px 0 12px;">Systemic & Whole-Body</h3>
+          <ul class="conditions-grid">
+            <li>Diabetes & Diabetic Foot</li><li>Gout</li><li>Auto-immune Diseases</li><li>Peripheral Neuropathy</li><li>Peripheral Vascular Disease</li><li>Raynaud’s Disease</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services / advanced care -->
+  <section id="services" style="background-color: #FEFEF9;">
+    <div class="container">
+      <h2 class="section-title">Advanced In-Office Care & Services</h2>
+      <p class="section-sub">Diagnostic ultrasound, regenerative injections, laser, shockwave, and minimally invasive surgery — all in one place.</p>
+      <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 28px;">
+        <div class="service-card"><h3>🔍 Diagnostic Ultrasound</h3><p>Real-time imaging of tendons, ligaments, and nerves. No radiation.</p></div>
+        <div class="service-card"><h3>🧬 Functional Medicine</h3><p>Root-cause testing for inflammation, metabolic imbalances.</p></div>
+        <div class="service-card"><h3>⚡ Shockwave Therapy</h3><p>Non-invasive, no downtime for plantar fasciitis, neuropathy & Achilles pain.</p></div>
+        <div class="service-card"><h3>💉 Prolotherapy & Homeopathic Injection</h3><p>Natural healing response for chronic pain & ankle instability.</p></div>
+        <div class="service-card"><h3>🦶 Custom Orthotics</h3><p>Prescription devices correcting biomechanics & pressure points.</p></div>
+        <div class="service-card"><h3>🌿 Laser Therapy (Pain & Fungus)</h3><p>Painless, reduces inflammation, treats toenail fungus without needles.</p></div>
+        <div class="service-card"><h3>✂️ Minimally Invasive Surgery</h3><p><1cm incisions for bunions, hammertoes – faster recovery.</p></div>
+        <div class="service-card"><h3>📋 Routine Nail & Callus Care</h3><p>Sterile medical debridement, ideal for diabetics & seniors.</p></div>
+      </div>
+      <div style="margin-top: 32px; text-align: center;">
+        <span class="badge" style="background:#43895010; padding: 8px 20px; border-radius: 40px;">Focus on conservative care — surgery is always the last resort</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- house calls + direct care convenience repeat -->
+  <div class="container">
+    <div style="display: flex; flex-wrap: wrap; gap: 32px; margin: 40px 0; background: #FFFFFF; border-radius: 48px; box-shadow: 0 8px 20px rgba(0,0,0,0.02); padding: 32px;">
+      <div style="flex:1"><h3 style="font-size: 1.8rem;">🏡 House Calls Available</h3><p>Skip the commute and waiting room. Care provided at home, work, or hotel — ideal for seniors, post-op, busy professionals.</p></div>
+      <div style="flex:1"><h3 style="font-size: 1.8rem;">📋 Direct Care Convenience</h3><p>Longer appointments, no prior authorizations. You and your doctor decide treatment — not insurance companies.</p></div>
+    </div>
+  </div>
+
+  <!-- Doctor section -->
+  <section id="about">
+    <div class="container doctor-bio">
+      <div class="two-col">
+        <div>
+          <div class="doctor-name">Craig E. Clifford, DPM, MHA, FACFAS, FACPM</div>
+          <div class="credentials">Board Certified: Foot & Ankle Surgery · Podiatric Medicine</div>
+          <p style="margin-bottom: 16px;">With over a decade of surgical expertise, Dr. Clifford recognized that most foot/ankle surgery can be avoided with appropriate conservative care. In 2022, he left high-volume surgery to expand access to cutting-edge nonsurgical treatment — while still offering minimally invasive surgery when truly necessary. Every patient receives an individualized, evidence-based approach.</p>
+          <p>Dr. Clifford completed his residency at Franciscan Foot and Ankle Institute, later serving as Director of Research and Residency Training. Honors include Clinician of the Year, Instructor of the Year, and Washington State Podiatric Medical Association <strong>Physician of the Year (2020)</strong>. He has served on the Board of the International Foot and Ankle Foundation and volunteered with the Yucatan Children’s Project performing deformity surgeries for underserved children in Mexico.</p>
+        </div>
+        <div style="background: #FFFFFF20; border-radius: 24px; padding: 24px; border: 1px solid #43895030;">
+          <p style="font-weight: bold; font-size: 1.2rem;">🏆 Recognitions</p>
+          <ul style="margin-top: 12px; list-style: none;">
+            <li>✓ Physician of the Year 2020 (WSPMA)</li>
+            <li>✓ Clinician of the Year, Instructor of the Year</li>
+            <li>✓ Editorial roles & peer reviewer for medical journals</li>
+            <li>✓ Over a decade volunteering, Yucatan Children’s Project</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- map + contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Start your journey — reach out directly</h2>
+      <div class="contact-card">
+        <div class="contact-details">
+          <p style="font-size: 1.4rem; font-weight: bold;">📍 Pathways Foot & Ankle</p>
+          <p>216 14th St, Oregon City, OR 97045</p>
+          <p>📞 <a href="tel:+19713595299">(971) 359-5299</a> — Call Dr. Clifford directly</p>
+          <p>✉️ Same-day & next-day appointments available, no referral needed</p>
+          <div style="margin-top: 24px;">
+            <a href="#appointment" class="btn-primary" style="background: #FFFFFF; color:#083104; margin-right: 12px;">Request an Appointment</a>
+            <a href="tel:+19713595299" class="btn-outline" style="background: transparent; border-color: white; color:white;">Call Now</a>
+          </div>
+          <p style="margin-top: 24px; font-size:0.85rem;">HSA/FSA eligible · transparent pricing · no surprise bills</p>
+        </div>
+        <div style="min-width: 220px; flex:1">
+          <div class="map-placeholder">
+            📍 216 14th St, Oregon City, OR 97045<br> (Map embedded)
+          </div>
+          <p style="margin-top: 12px; font-size:0.75rem; text-align: center;">Convenient Oregon City location — house calls also available</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- appointment modal section (simple anchor) -->
+  <div id="appointment" style="scroll-margin-top: 100px;"></div>
+  <div class="container" style="margin-bottom: 48px;">
+    <div style="background: #F2F6EF; border-radius: 48px; padding: 40px; text-align: center;">
+      <h3 class="heading-large" style="font-size: 2rem;">Request an appointment</h3>
+      <p style="margin: 16px 0;">Contact Dr. Clifford directly to discuss your foot and ankle concerns. He will determine the best approach and gladly answer your questions.</p>
+      <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <a href="tel:+19713595299" class="btn-primary" style="background:#083104;">📞 Call (971) 359-5299</a>
+        <a href="#" class="btn-outline" style="border-color: #438950; color:#083104;">✉️ or email direct (clinic@pathwaysfoot.com demo)</a>
+      </div>
+      <p style="margin-top: 20px; font-size:0.85rem;">※ No insurance middlemen, longer visits, same-day / next-day open.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Pathways Foot & Ankle — Holistic, Functional Medicine & Board-Certified Foot & Ankle Care. Oregon City, OR.</p>
+      <p style="margin-top: 8px;">Dr. Craig E. Clifford, DPM, MHA, FACFAS, FACPM | Conservative care first, surgery last resort.</p>
+    </div>
+  </footer>
+</main>
+</body>
+</html>
