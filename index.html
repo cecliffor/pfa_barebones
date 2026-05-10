@@ -49,16 +49,27 @@
       }
     }
 
-    /* header */
+    /* ========== STATIC HEADER - NO FLOATING, NO HIDING ========== */
     .site-header {
       background: #FFFFFF;
       border-bottom: 1px solid #e0ecd9;
       padding: 18px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(3px);
+      position: static;
+      width: 100%;
+      background: #FFFFFF;
+    }
+
+    /* No margin-top needed on main since header is static */
+    main {
+      margin-top: 0;
+    }
+
+    /* Anchor scroll offset - no fixed header to account for */
+    section, [id] {
+      scroll-margin-top: 20px;
+    }
+    #appointment {
+      scroll-margin-top: 20px;
     }
 
     .header-flex {
@@ -225,7 +236,6 @@
     }
     .section-sub {
       font-size: 1rem;
-      max-width: 760px;
       margin-bottom: 42px;
       color: #2b4b26;
     }
@@ -506,8 +516,23 @@
       <a href="#services"><i class="fas fa-stethoscope"></i> Services</a>
       <a href="#about"><i class="fas fa-user-md"></i> Dr. Clifford</a>
       <a href="#contact"><i class="fas fa-map-marker-alt"></i> Contact</a>
-      <a href="#appointment" class="btn-request-nav"><i class="fas fa-calendar-check"></i> Request Appointment</a>
-    </div>
+      <!-- Google Calendar Appointment Scheduling begin -->
+        <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+        <script>
+            (function() {
+            var target = document.currentScript;
+            window.addEventListener('load', function() {
+                calendar.schedulingButton.load({
+                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ16SPDk0mzDfLBAUjFxc_pV5OqAn2F4hzFjKW5druhPjwGx7-KqRKUS8gtjvqzfRtq1tW5UQuNX?gv=true',
+                color: '#083104',
+                label: 'Request Appointment',
+                target,
+                });
+            });
+            })();
+           </script>
+<!-- end Google Calendar Appointment Scheduling -->
   </div>
 </header>
 
@@ -516,13 +541,8 @@
   <div class="container hero">
     <div class="hero-grid">
       <div class="hero-content">
-        <div class="hero-badge"><i class="fas fa-hand-holding-heart"></i> Direct Care · No Insurance Middlemen</div>
         <h1 class="hero-title">Your next step on the path to better health</h1>
-        <p class="hero-sub">Holistic, functional medicine meets board-certified foot & ankle expertise — in Oregon City. Longer visits, transparent pricing, and root-cause healing.</p>
-        <div class="cta-group">
-          <a href="#appointment" class="btn-primary"><i class="fas fa-envelope"></i> Request an Appointment</a>
-          <a href="#contact" class="btn-outline"><i class="fas fa-phone-alt"></i> Call Dr. Clifford</a>
-        </div>
+        <p class="hero-sub">Holistic, Functional Medicine meets Board Certified foot and ankle expertise in the heart of Oregon City.</p> 
       </div>
     </div>
   </div>
@@ -539,65 +559,6 @@
     </div>
   </div>
 
-  <!-- Conditions Treated -->
-  <section id="conditions">
-    <div class="container">
-      <h2 class="section-title"><i class="fas fa-diagnoses"></i> Conditions Treated</h2>
-      <p class="section-sub">Your feet are the foundation of everything you do. From sharp pain to complex deformities — conservative care first, surgery last resort. ADD MORE</p>
-      <div class="two-col">
-        <div class="col">
-          <h3 style="margin-bottom: 18px;"><i class="fas fa-bolt"></i> Acute & Chronic Pain</h3>
-          <ul class="conditions-grid">
-            <li><i class="fas fa-check-circle"></i>Achilles Tendinitis</li><li><i class="fas fa-check-circle"></i>Ankle Instability</li><li><i class="fas fa-check-circle"></i>Ankle Arthritis</li>
-            <li><i class="fas fa-check-circle"></i>Arthritis</li><li><i class="fas fa-check-circle"></i>Bunions</li><li><i class="fas fa-check-circle"></i>Fractures</li>
-            <li><i class="fas fa-check-circle"></i>Neuromas & Nerve Pain</li><li><i class="fas fa-check-circle"></i>Tarsal Tunnel Syndrome</li>
-            <li><i class="fas fa-check-circle"></i>Plantar Fasciitis</li><li><i class="fas fa-check-circle"></i>Heel Pain</li>
-            <li><i class="fas fa-check-circle"></i>Posterior Tibial Tendinitis</li><li><i class="fas fa-check-circle"></i>Stress Fractures</li>
-            <li><i class="fas fa-check-circle"></i>Tendonitis</li><li><i class="fas fa-check-circle"></i>Sports Injuries</li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3 style="margin-bottom: 18px;"><i class="fas fa-shapes"></i> Deformities & Skin Conditions</h3>
-          <ul class="conditions-grid">
-            <li><i class="fas fa-check-circle"></i>Hammertoes & Crossover Toes</li><li><i class="fas fa-check-circle"></i>Flat Feet</li>
-            <li><i class="fas fa-check-circle"></i>Clubfoot Deformity</li><li><i class="fas fa-check-circle"></i>Corns/Calluses</li>
-            <li><i class="fas fa-check-circle"></i>Ingrown Toenails</li><li><i class="fas fa-check-circle"></i>Toenail Fungus</li>
-            <li><i class="fas fa-check-circle"></i>Skin Cancer of the Foot</li><li><i class="fas fa-check-circle"></i>Ulcers / Wounds</li>
-            <li><i class="fas fa-check-circle"></i>Warts</li>
-          </ul>
-          <h3 style="margin: 28px 0 12px;"><i class="fas fa-heartbeat"></i> Systemic & Whole-Body</h3>
-          <ul class="conditions-grid">
-            <li><i class="fas fa-check-circle"></i>Diabetes & Diabetic Foot</li><li><i class="fas fa-check-circle"></i>Gout</li>
-            <li><i class="fas fa-check-circle"></i>Auto-immune Diseases</li><li><i class="fas fa-check-circle"></i>Peripheral Neuropathy</li>
-            <li><i class="fas fa-check-circle"></i>Peripheral Vascular Disease</li><li><i class="fas fa-check-circle"></i>Raynaud’s Disease</li>
-            <li><i class="fas fa-check-circle"></i>Parkinson's Disease</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services" style="background-color: #FEFEF9;">
-    <div class="container">
-      <h2 class="section-title"><i class="fas fa-microscope"></i> Advanced In-Office Care & Services</h2>
-      <div class="services-grid">
-        <div class="service-card"><i class="fas fa-waveform"></i><h3>Diagnostic Ultrasound</h3><p>Real-time imaging of tendons, ligaments, and nerves. No radiation.</p></div>
-        <div class="service-card"><i class="fas fa-dna"></i><h3>Functional Medicine</h3><p>Root-cause testing for inflammation, metabolic imbalances.</p></div>
-        <div class="service-card"><i class="fas fa-bolt"></i><h3>Shockwave Therapy</h3><p>Non-invasive, no downtime for plantar fasciitis, neuropathy & Achilles pain.</p></div>
-        <div class="service-card"><i class="fas fa-syringe"></i><h3>Prolotherapy & Homeopathic Injection</h3><p>Natural healing response for chronic pain & ankle instability.</p></div>
-        <div class="service-card"><i class="fas fa-shoe-prints"></i><h3>Custom Orthotics</h3><p>Prescription devices correcting biomechanics & pressure points.</p></div>
-        <div class="service-card"><i class="fas fa-lightbulb"></i><h3>Laser Therapy (Pain & Fungus)</h3><p>Painless, reduces inflammation, treats toenail fungus without needles.</p></div>
-        <div class="service-card"><i class="fas fa-cut"></i><h3>Minimally Invasive Surgery</h3><p><1cm incisions for bunions, hammertoes – faster recovery.</p></div>
-        <div class="service-card"><i class="fas fa-hand-holding-heart"></i><h3>Routine Nail & Callus Care</h3><p>Sterile medical debridement, ideal for diabetics & seniors.</p></div>
-        <div class="service-card"><i class="fas fa-capsules"></i><h3>Cortisone Injections</h3><p>Powerful anti-inflammatory relief for arthritis, tendinitis.</p></div>
-      </div>
-      <div style="margin-top: 38px; text-align: center;">
-        <span class="badge-soft"><i class="fas fa-stethoscope"></i> Focus on conservative care — surgery is always the last resort</span>
-      </div>
-    </div>
-  </section>
-
   <!-- House Calls & Direct Care Block -->
   <div class="container">
     <div class="value-block">
@@ -606,24 +567,104 @@
     </div>
   </div>
 
+  <!-- Conditions Treated -->
+  <section>
+    <div class="container">
+      <h2 class="section-title" id="conditions"><i class="fas fa-diagnoses"></i> Conditions Treated</h2>
+      <p class="section-sub">Your feet are the foundation of everything you do. When something feels off — whether it's a sharp pain, a strange lump, a stubborn skin issue, or a condition linked to another health problem — care is available. At Pathways Foot & Ankle, the full range of foot and ankle conditions are diagnosed and treated, from common problems like ingrown toenails and plantar fasciitis to complex deformities and systemic diseases. No referral is needed, and most treatments start conservatively, only moving to surgery when truly necessary.</p>
+      <div class="two-col">
+        <div class="col">
+          <h3 style="margin-bottom: 18px;"><i class="fas fa-bolt"></i> Acute & Chronic Pain</h3>
+          <ul class="conditions-grid">
+            <li><i class="fas fa-check-circle"></i>Achilles Tendinitis</li>
+            <li><i class="fas fa-check-circle"></i>Ankle Arthritis</li>
+            <li><i class="fas fa-check-circle"></i>Ankle Instability</li>
+            <li><i class="fas fa-check-circle"></i>Foot and Toe Arthritis</li>
+            <li><i class="fas fa-check-circle"></i>Fractures</li>
+            <li><i class="fas fa-check-circle"></i>Heel Pain</li>
+            <li><i class="fas fa-check-circle"></i>Neuromas & Nerve Pain</li>
+            <li><i class="fas fa-check-circle"></i>Plantar Fasciitis</li>
+            <li><i class="fas fa-check-circle"></i>Posterior Tibial Tendinitis</li>
+            <li><i class="fas fa-check-circle"></i>Sports Injuries</li>
+            <li><i class="fas fa-check-circle"></i>Stress Fractures</li>
+            <li><i class="fas fa-check-circle"></i>Tarsal Tunnel Syndrome</li>
+            <li><i class="fas fa-check-circle"></i>Tendonitis</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3 style="margin-bottom: 18px;"><i class="fas fa-shapes"></i> Deformities & Skin Conditions</h3>
+          <ul class="conditions-grid">
+            <li><i class="fas fa-check-circle"></i>Bunions</li>            
+            <li><i class="fas fa-check-circle"></i>Clubfoot Deformity</li>
+            <li><i class="fas fa-check-circle"></i>Corns/Calluses</li>
+            <li><i class="fas fa-check-circle"></i>Flat Feet</li>
+            <li><i class="fas fa-check-circle"></i>Hammertoes & Crossover Toes</li>
+            <li><i class="fas fa-check-circle"></i>Ingrown Toenails</li>
+            <li><i class="fas fa-check-circle"></i>Skin Cancer of the Foot</li>
+            <li><i class="fas fa-check-circle"></i>Toenail Fungus</li>
+            <li><i class="fas fa-check-circle"></i>Ulcers / Wounds</li>
+            <li><i class="fas fa-check-circle"></i>Warts</li>
+          </ul>
+          <h3 style="margin: 28px 0 12px;"><i class="fas fa-heartbeat"></i> Systemic Conditions Affecting the Feet</h3>
+          <ul class="conditions-grid">
+            <li><i class="fas fa-check-circle"></i>Auto-immune Diseases</li>
+            <li><i class="fas fa-check-circle"></i>Connective Tissue Disorders</li>
+            <li><i class="fas fa-check-circle"></i>Diabetes & Diabetic Foot</li>
+            <li><i class="fas fa-check-circle"></i>Gout</li>
+            <li><i class="fas fa-check-circle"></i>Parkinson's Disease</li>
+            <li><i class="fas fa-check-circle"></i>Peripheral Neuropathy</li>
+            <li><i class="fas fa-check-circle"></i>Peripheral Vascular Disease</li>
+            <li><i class="fas fa-check-circle"></i>Raynaud's Disease</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section style="background-color: #FEFEF9;">
+    <div class="container">
+      <h2 class="section-title" id="services"><i class="fas fa-microscope"></i> Advanced In-Office Care & Services</h2>
+      <div class="services-grid">
+        <div class="service-card"><i class="fa-regular fa-circle-dot"></i><h3>Diagnostic Ultrasound</h3><p>Painless, radiation-free imaging allows examination of soft tissues like tendons, ligaments, and nerves in real time. It's especially helpful for diagnosing plantar fasciitis, tendon tears, neuromas, and cysts.</p></div>
+        <div class="service-card"><i class="fa-solid fa-dna"></i><h3>Functional Medicine</h3><p>Foot problems often stem from whole-body issues like inflammation, metabolic imbalances, or nutritional deficiencies. Functional medicine testing digs deeper to treat the root cause — not just the symptoms.</p></div>
+        <div class="service-card"><i class="fa-solid fa-xmark"></i><h3>Toenail Removal</h3><p>For infected toenails, chronically ingrown, thickened, or painful nails, safe in-office nail removal is available. The procedure is quick and can be made permanent if the nail edge keeps growing back.</p></div>
+        <div class="service-card"><i class="fa-solid fa-syringe"></i><h3>Cortisone Injections</h3><p>A powerful anti-inflammatory shot that reduces swelling and pain from conditions like arthritis, tendinitis, and plantar fasciitis. Relief often begins within days and can last for weeks or months.</p></div>
+        <div class="service-card"><i class="fa-solid fa-shoe-prints"></i><h3>Custom Orthotics</h3><p>Prescription devices made specifically for your feet. Unlike over-the-counter inserts, custom orthotics correct your unique biomechanics, relieve pressure points, and prevent reinjury.</p></div>
+        <div class="service-card"><i class="fa-solid fa-wave-square"></i><h3>Shockwave Therapy</h3><p>A non-invasive treatment that uses high-energy sound waves to stimulate healing in chronic conditions like plantar fasciitis, peripheral neuropathy, neuromas, and Achilles tendinitis. No needles, no downtime. Typically requires 3-5 sessions for maximum results.</p></div>
+        <div class="service-card"><i class="fa-solid fa-syringe"></i><h3>Prolotherapy</h3><p>Prolotherapy (proliferative therapy) uses a small amount of an irritant solution — typically dextrose — injected into a weakened ligament or tendon. This triggers a natural healing response, strengthening the tissue and reducing chronic pain. It's especially effective for ankle instability, plantar fasciitis, and unresolved sprains.</p></div>
+        <div class="service-card"><i class="fa-brands fa-pagelines"></i><h3>Homeopathic Injection Therapy</h3><p>A gentle, plant-based alternative to corticosteroids and NSAIDs. This therapy is designed to reduce inflammation, break up scar tissue, and relieve nerve pain without the side effects of stronger medications. It's often used for neuromas, arthritic joints, and chronic tendinitis.</p></div>
+        <div class="service-card"><i class="fa-solid fa-scissors"></i><h3>Routine Nail and Callus Care</h3><p>Not just a trim — medical assessment and treatment of thick, deformed, or fungal nails, along with painful, hardened skin. Using sterile instruments, calluses are reduced to prevent ulcers and nails are carefully debrided to restore comfort and mobility. Ideal for diabetics, seniors, or anyone who struggles to care for their own feet.</p></div>
+        <div class="service-card"><i class="fa-solid fa-bolt"></i><h3>Laser Therapy for Pain & Inflammation</h3><p>Medical grade lasers use focused, painless light energy to penetrate deep into tissues without heat or discomfort. For acute and chronic pain, it reduces inflammation, stimulates cell repair, and improves blood flow — effectively treating arthritis, tendonitis, neuropathy, and sports injuries. Each session takes only a few minutes, and most patients notice improvement after 3–6 treatments.</p></div>
+        <div class="service-card"><i class="fa-solid fa-bacteria"></i><h3>Laser Therapy for Toenail Fungus</h3><p>Specialized laser energy safely heats and destroys toenail fungus without damaging the surrounding skin or nail. The treatment is painless, requires no needles or anesthesia, and has no downtime.</p></div>
+        <div class="service-card"><i class="fa-solid fa-kit-medical"></i><h3>Minimally Invasive Surgery</h3><p>When surgery is needed, small incisions (often less than 1 cm) are used to correct bunions, hammertoes, neuromas, and more. The result is less pain, faster recovery, and no large scars.</p></div>
+      </div>
+      <div style="margin-top: 38px; text-align: center;">
+        <span class="badge-soft"><i class="fas fa-stethoscope"></i> Focus on conservative care — surgery is always the last resort</span>
+      </div>
+    </div>
+  </section>
+
   <!-- Dr. Clifford Bio -->
-  <section id="about">
+  <section>
     <div class="container doctor-bio">
       <div class="two-col" style="gap: 40px;">
         <div>
-          <div class="doctor-name"><i class="fas fa-certificate"></i> Craig E. Clifford, DPM, MHA</div>
-          <div class="credentials">Board Certified: Foot & Ankle Surgery · Podiatric Medicine</div>
-          <p style="margin-bottom: 16px;">With over a decade of surgical expertise, Dr. Clifford recognized that most foot/ankle surgery can be avoided with appropriate conservative care. In 2022, he left high-volume surgery to expand access to cutting-edge nonsurgical treatment — while still offering minimally invasive surgery when truly necessary. Every patient receives an individualized, evidence-based approach.</p>
-          <p>Dr. Clifford completed his residency at Franciscan Foot and Ankle Institute, later serving as Director of Research and Residency Training. Honors include Clinician of the Year, Instructor of the Year, and Washington State Podiatric Medical Association <strong>Physician of the Year (2020)</strong>. He has served on the Board of the International Foot and Ankle Foundation and volunteered with the Yucatan Children’s Project performing deformity surgeries for underserved children in Mexico.</p>
+          <div class="doctor-name" id="about"><i class="fas fa-certificate"></i> Craig E. Clifford, DPM, MHA</div>
+          <div class="credentials">Board Certified: American Board of Foot and Ankle Surgery · American Board of Podiatric Medicine</div>
+          <p style="margin-bottom: 16px;">Dr. Clifford completed his residency training at the Franciscan Foot and Ankle Institute in Washington, where he later served as Director of Residency Training. During his teaching tenure, he received multiple honors including <b>Clinician of the Year</b>, Instructor of the Year, and Outstanding Teaching Award. In 2020, he was named <b>Physician of the Year</b> by the Washington State Podiatric Medical Association.</p>
+          <p>With more than a decade of performing, teaching, and developing surgical techniques, Dr. Clifford recognized that most foot and ankle surgery can be avoided with appropriate conservative care. In 2022, he left his successful high volume surgical practice to focus on expanding patient access to cutting-edge nonsurgical treatment—though he continues to perform surgery when necessary, utilizing the latest advancements in minimally invasive techniques. Dr. Clifford understands that there is no "one size fits all" solution in medicine, and <b>every patient deserves an individualized, evidence-based approach, not a generic treatment plan</b>.</p>
         </div>
         <div style="background: #FFFFFF; border-radius: 28px; padding: 28px; border: 1px solid #cde0c2;">
           <p style="font-weight: bold; font-size: 1.2rem; margin-bottom: 16px;"><i class="fas fa-trophy"></i> Recognitions & Leadership</p>
           <ul class="recognition-list">
-            <li><i class="fas fa-star"></i> Physician of the Year 2020 (WSPMA)</li>
-            <li><i class="fas fa-chalkboard-user"></i> Clinician of the Year, Instructor of the Year</li>
-            <li><i class="fas fa-newspaper"></i> Editorial roles & peer reviewer for medical journals</li>
-            <li><i class="fas fa-hand-holding-heart"></i> Over a decade volunteering, Yucatan Children’s Project</li>
-            <li><i class="fas fa-user-graduate"></i> Director of Residency Training (former)</li>
+            <li><i class="fas fa-star"></i> Physician of the Year (2020)</li>
+            <li><i class="fa-solid fa-user-doctor"></i> Clinician of the Year (2014, 2015, 2017, 2018, 2021, 2022)</li>
+            <li><i class="fas fa-chalkboard-user"></i> Instructor of the Year (2019)</li>
+            <li><i class="fas fa-user-graduate"></i></i> Outstanding Teaching Award (2015, 2020)</li>
+            <li><i class="fas fa-newspaper"></i> Editorial roles & peer reviewer for multiple medical journals</li>
+            <li><i class="fas fa-school"></i> Board of Directors, International Foot & Ankle Foundation (2016-2026)</li>
+            <li><i class="fas fa-hand-holding-heart"></i> 10+ years volunteering, Yucatán Children’s Project, Mexico</li>
           </ul>
         </div>
       </div>
@@ -633,49 +674,45 @@
   <!-- Contact + Map -->
   <section id="contact">
     <div class="container">
-      <h2 class="section-title"><i class="fas fa-address-card"></i> Start your journey — reach out directly</h2>
+      <h2 class="section-title"><i class="fas fa-address-card"></i> Start your journey — reach out today</h2>
       <div class="contact-card">
         <div class="contact-details">
-          <p style="font-size: 1.5rem; font-weight: bold;"><i class="fas fa-map-pin"></i> Pathways Foot & Ankle</p>
-          <p><i class="fas fa-location-dot"></i> 216 14th St, Oregon City, OR 97045</p>
+          <p style="font-size: 1.5rem; font-weight: bold;"><i class="fas fa-map-pin"></i> Pathways Foot & Ankle - Dr. Craig Clifford</p>
+          <p><i class="fas fa-location-dot"></i><a href="https://www.google.com/maps/search/216+14th+St+Oregon+City+OR+97045" target="_blank" rel="noopener noreferrer">
+            216 14th St, Oregon City, OR 97045</a></p>
           <p><i class="fas fa-phone"></i> <a href="tel:+19713595299">(971) 359-5299</a> — Call Dr. Clifford directly</p>
           <p><i class="fas fa-calendar-alt"></i> Same-day & next-day appointments available, no referral needed</p>
           <div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 14px;">
-            <a href="#appointment" class="btn-primary" style="background: #FFFFFF; color:#083104; border: none;"><i class="fas fa-calendar-check"></i> Request an Appointment</a>
-            <a href="tel:+19713595299" class="btn-outline" style="background: transparent; border-color: white; color:white;"><i class="fas fa-phone-alt"></i> Call Now</a>
+<!-- Google Calendar Appointment Scheduling begin -->
+            <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+            <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+            <script>
+                (function() {
+                var target = document.currentScript;
+                window.addEventListener('load', function() {
+                    calendar.schedulingButton.load({
+                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ16SPDk0mzDfLBAUjFxc_pV5OqAn2F4hzFjKW5druhPjwGx7-KqRKUS8gtjvqzfRtq1tW5UQuNX?gv=true',
+                    color: '#FFFFFF',
+                    label: 'Request Appointment',
+                    target,
+                    });
+                });
+                })();
+            </script>
+<!-- end Google Calendar Appointment Scheduling -->
           </div>
-          <p style="margin-top: 28px; font-size:0.85rem;"><i class="fas fa-credit-card"></i> HSA/FSA eligible · transparent pricing · no surprise bills</p>
         </div>
         <div style="min-width: 220px; flex: 1;">
-          <div class="map-placeholder">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>216 14th Street, Oregon City, OR 97045</span>
-            <small>(Heart of Oregon City)</small>
-          </div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2803.353623733861!2d-122.60391462347077!3d45.36185874026084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549576ca14b253f5%3A0x4b88e2f47c850aa2!2s216%2014th%20St%2C%20Oregon%20City%2C%20OR%2097045!5e0!3m2!1sen!2sus!4v1778375327640!5m2!1sen!2sus" width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           <p style="margin-top: 16px; font-size:0.75rem; text-align: center;"><i class="fas fa-car"></i> House calls also available throughout the region.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Appointment anchor + CTA -->
-  <div id="appointment" style="scroll-margin-top: 100px;"></div>
-  <div class="container">
-    <div class="appointment-cta">
-      <i class="fas fa-calendar-plus"></i>
-      <h3 class="heading-large" style="font-size: 2rem; margin-bottom: 16px;">Request an appointment</h3>
-      <p style="margin-bottom: 24px; font-size: 1.05rem;">Contact Dr. Clifford directly to discuss your foot and ankle concerns. He will determine the best approach and gladly answer your questions.</p>
-      <div class="cta-group" style="justify-content: center;">
-        <a href="tel:+19713595299" class="btn-primary"><i class="fas fa-phone"></i> Call (971) 359-5299</a>
-        <a href="#" class="btn-outline"><i class="fas fa-envelope"></i> clifford@pathwaysfoot.com</a>
-      </div>
-      <p style="margin-top: 24px; font-size:0.85rem;"><i class="fas fa-clock"></i> No insurance middlemen, longer visits, same-day / next-day open.</p>
-    </div>
-  </div>
-
   <footer>
     <div class="container">
-      <p><i class="fas fa-copyright"></i> 2026 Pathways Foot & Ankle — Holistic, Functional Medicine & Board-Certified Foot & Ankle Care. Oregon City, OR.</p>
+      <p><i class="fas fa-copyright"></i> 2026 Pathways Foot & Ankle. Oregon City, OR.</p>
       <p style="margin-top: 8px;">Dr. Craig E. Clifford</p>
     </div>
   </footer>
